@@ -1,3 +1,3 @@
-# M4_Team3-1
+# Tic-Tac-Toe Game
 
 Logan McNatt, Caleb Gooch, Noelle Burton, and Gracie Sentz
