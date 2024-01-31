@@ -6,7 +6,6 @@ HelperTools ht = new HelperTools();
 string[] gameBoard = new string[9];
 int player1Choice = 0;
 int player2Choice = 0;
-string player = "";
 int winner = 0;
 bool gameOver = false;
 
@@ -19,15 +18,15 @@ Console.WriteLine("Here are the options for the gameboard:\n" +
 
 // do
 // {
-player = "p1";
-Console.WriteLine("Player 1, Please make your first move");
+Console.WriteLine("Player 1, Please make your move");
 player1Choice = int.Parse(Console.ReadLine()) - 1;
-ht.printBoard(gameBoard, player);
+gameBoard[player1Choice] = "X";
+ht.printBoard(gameBoard);
 
-player = "p2";
-Console.WriteLine("Player 2, Please make your first move");
+Console.WriteLine("Player 2, Please make your move");
 player1Choice = int.Parse(Console.ReadLine()) - 1;
-ht.printBoard(gameBoard, player);
+gameBoard[player1Choice] = "O";
+ht.printBoard(gameBoard);
 
 winner = ht.getWinner(gameBoard);
 
