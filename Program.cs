@@ -25,7 +25,7 @@ do
 
     Console.WriteLine("Player 2, Please make your move");
     player1Choice = int.Parse(Console.ReadLine()) - 1;
-    gameBoard[player1Choice] = "O";
+    gameBoard[player2Choice] = "O";
     ht.printBoard(gameBoard);
 
     winner = ht.getWinner(gameBoard);
