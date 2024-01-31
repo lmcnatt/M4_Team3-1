@@ -16,38 +16,38 @@ Console.WriteLine("Here are the options for the gameboard:\n" +
                   "4 5 6\n" +
                   "7 8 9");
 
-// do
-// {
-Console.WriteLine("Player 1, Please make your move");
-player1Choice = int.Parse(Console.ReadLine()) - 1;
-gameBoard[player1Choice] = "X";
-ht.printBoard(gameBoard);
+do
+{
+    Console.WriteLine("Player 1, Please make your move");
+    player1Choice = int.Parse(Console.ReadLine()) - 1;
+    gameBoard[player1Choice] = "X";
+    ht.printBoard(gameBoard);
 
-Console.WriteLine("Player 2, Please make your move");
-player1Choice = int.Parse(Console.ReadLine()) - 1;
-gameBoard[player1Choice] = "O";
-ht.printBoard(gameBoard);
+    Console.WriteLine("Player 2, Please make your move");
+    player1Choice = int.Parse(Console.ReadLine()) - 1;
+    gameBoard[player1Choice] = "O";
+    ht.printBoard(gameBoard);
 
-winner = ht.getWinner(gameBoard);
+    winner = ht.getWinner(gameBoard);
 
-if (winner == 0) // No win yet
-{
-    gameOver = false;
-}
-else if (winner == 1) // Player 1 won
-{
-    gameOver = true;
-    Console.WriteLine("Player 1 Wins!");
-}
-else if (winner == 2) // Player 2 won
-{
-    gameOver = true;
-    Console.WriteLine("Player 2 Wins!");
-}
-else if (winner == 3) // Tie
-{
-    gameOver = true;
-    Console.WriteLine("It's a Tie!");
-}
-// } while (!gameOver);
+    if (winner == 0) // No win yet
+    {
+        gameOver = false;
+    }
+    else if (winner == 1) // Player 1 won
+    {
+        gameOver = true;
+        Console.WriteLine("Player 1 Wins!");
+    }
+    else if (winner == 2) // Player 2 won
+    {
+        gameOver = true;
+        Console.WriteLine("Player 2 Wins!");
+    }
+    else if (winner == 3) // Tie
+    {
+        gameOver = true;
+        Console.WriteLine("It's a Tie!");
+    }
+} while (!gameOver);
 
