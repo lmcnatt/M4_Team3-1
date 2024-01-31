@@ -1,10 +1,10 @@
 ﻿// Tic-Tac-Toe Game
 
-using helper
+using Helper;
 
-helper = new helper();
+Helper help = new Helper();
 
 string playerMoves = new string[9];
 
-Console.WriteLine("Welcome to Tic-Tac-Toe!")
+Console.WriteLine("Welcome to Tic-Tac-Toe!");
 Console.WriteLine("Player 1, Please make your first move");
