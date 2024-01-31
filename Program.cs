@@ -38,14 +38,17 @@ if (winner == 0) // No win yet
 else if (winner == 1) // Player 1 won
 {
     gameOver = true;
+    Console.WriteLine("Player 1 Wins!");
 }
 else if (winner == 2) // Player 2 won
 {
     gameOver = true;
+    Console.WriteLine("Player 2 Wins!");
 }
 else if (winner == 3) // Tie
 {
     gameOver = true;
+    Console.WriteLine("It's a Tie!");
 }
 // } while (!gameOver);
 
