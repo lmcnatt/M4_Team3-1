@@ -11,20 +11,18 @@ namespace Helper
     {
         public void printBoard(string[] guesses) //this prints
         {
-            string spot0 = guesses[0];
-            string spot1 = guesses[1];
-            string spot2 = guesses[2];
-            string spot3 = guesses[3];
-            string spot4 = guesses[4];
-            string spot5 = guesses[5];
-            string spot6 = guesses[6];
-            string spot7 = guesses[7];
-            string spot8 = guesses[8];
-            string finalOutput = " " + spot0 + " | " + spot1 + " | " + spot2 + " " + "\n";
+            for (int i = 0; i < 8; i++)
+            {
+                if (guesses[i] == null)
+                {
+                    guesses[i] = " ";
+                }
+            }
+            string finalOutput = " " + guesses[0] + " | " + guesses[1] + " | " + guesses[2] + " " + "\n";
             finalOutput = finalOutput + "---+---+---" + "\n";
-            finalOutput = finalOutput + " " + spot3 + " | " + spot4 + " | " + spot5 + " " + "\n";
+            finalOutput = finalOutput + " " + guesses[3] + " | " + guesses[4] + " | " + guesses[5] + " " + "\n";
             finalOutput = finalOutput + "---+---+---" + "\n";
-            finalOutput = finalOutput + " " + spot6 + " | " + spot7 + " | " + spot8 + " ";
+            finalOutput = finalOutput + " " + guesses[6] + " | " + guesses[7] + " | " + guesses[8] + " ";
             Console.WriteLine(finalOutput);
         }
 
