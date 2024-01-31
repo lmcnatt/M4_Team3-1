@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace M4_Team3_1
+namespace Helper
 {
-    internal class Helper
+    internal class HelperTools
     {
     }
 }

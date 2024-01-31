@@ -2,7 +2,7 @@
 
 using Helper;
 
-Helper help = new Helper();
+HelperTools ht = new HelperTools();
 
 string playerMoves = new string[9];
 
