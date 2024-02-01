@@ -34,7 +34,8 @@ do
         Console.WriteLine("Player 2, Please make your move");
         player2Choice = int.Parse(Console.ReadLine()) - 1;
 
-    } while (!ht.validMoveP1(player1Choice, gameBoard));
+    } while (!ht.validMoveP2(player1Choice, gameBoard));
+
     gameBoard[player2Choice] = "O";
     ht.printBoard(gameBoard);
 
