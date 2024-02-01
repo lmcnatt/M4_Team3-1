@@ -18,14 +18,24 @@ Console.WriteLine("Here are the options for the gameboard:\n" +
 
 do
 {
-    Console.WriteLine("Player 1, Please make your move");
-    player1Choice = int.Parse(Console.ReadLine()) - 1;
+    // Validate the guess
+    do
+    {
+        Console.WriteLine("Player 1, Please make your move");
+        player1Choice = int.Parse(Console.ReadLine()) - 1;
+
+    } while (!ht.validMoveP1(player1Choice, gameBoard));
+
     gameBoard[player1Choice] = "X";
     ht.printBoard(gameBoard);
 
-    Console.WriteLine("Player 2, Please make your move");
-    player1Choice = int.Parse(Console.ReadLine()) - 1;
-    gameBoard[player1Choice] = "O";
+    do
+    {
+        Console.WriteLine("Player 2, Please make your move");
+        player2Choice = int.Parse(Console.ReadLine()) - 1;
+
+    } while (!ht.validMoveP1(player1Choice, gameBoard));
+    gameBoard[player2Choice] = "O";
     ht.printBoard(gameBoard);
 
     winner = ht.getWinner(gameBoard);
@@ -51,3 +61,58 @@ do
     }
 } while (!gameOver);
 
+public bool validMoveP1(int player1Choice, string[] gameBoard)
+{
+    bool result = true; // Default to a valid guess
+
+    if (player1Choice.Length != 1) // Check for only one number
+    {
+        Console.WriteLine("Sorry, you can only choose one space at a time");
+        result = false;
+    }
+    else if (!int.TryParse(player1Choice.ToString(), out _)) // Check to make sure it is a number
+    {
+        Console.WriteLine("Sorry, you have to type a number");
+        result = false;
+    }
+    else if (player1Choice < 0 || player1Choice >= gameBoard.Length)
+    {
+        Console.WriteLine("Invalid choice. Please choose a number between 1 and 9");
+        result = false;
+    }
+    else if (gameBoard[player1Choice] != null) // Check to see if the space is taken
+    {
+        Console.WriteLine("Sorry, someone has already gone there.");
+        result = false;
+    }
+
+    return result;
+}
+
+public bool validMoveP2(int player2Choice, string[] gameBoard)
+{
+    bool result = true; // Default to a valid guess
+
+    if (player1Choice.Length != 1) // Check for only one number
+    {
+        Console.WriteLine("Sorry, you can only choose one space at a time");
+        result = false;
+    }
+    else if (!int.TryParse(player2Choice.ToString(), out _)) // Check to make sure it is a number
+    {
+        Console.WriteLine("Sorry, you have to type a number");
+        result = false;
+    }
+    else if (player2Choice < 0 || player1Choice >= gameBoard.Length)
+    {
+        Console.WriteLine("Invalid choice. Please choose a number between 1 and 9");
+        result = false;
+    }
+    else if (gameBoard[player2Choice] != null) // Check to see if the space is taken
+    {
+        Console.WriteLine("Sorry, someone has already gone there.");
+        result = false;
+    }
+
+    return result;
+}
