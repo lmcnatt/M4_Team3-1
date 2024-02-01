@@ -24,7 +24,7 @@ do
         Console.WriteLine("Player 1, Please make your move");
         player1Choice = int.Parse(Console.ReadLine()) - 1;
 
-    } while (!ht.validMoveP1(player1Choice, gameBoard));
+    } while (!validMoveP1(player1Choice, gameBoard));
 
     gameBoard[player1Choice] = "X";
     ht.printBoard(gameBoard);
@@ -34,7 +34,7 @@ do
         Console.WriteLine("Player 2, Please make your move");
         player2Choice = int.Parse(Console.ReadLine()) - 1;
 
-    } while (!ht.validMoveP2(player1Choice, gameBoard));
+    } while (!validMoveP2(player1Choice, gameBoard));
 
     gameBoard[player2Choice] = "O";
     ht.printBoard(gameBoard);
@@ -62,16 +62,11 @@ do
     }
 } while (!gameOver);
 
-public bool validMoveP1(int player1Choice, string[] gameBoard)
+bool validMoveP1(int player1Choice, string[] gameBoard)
 {
     bool result = true; // Default to a valid guess
 
-    if (player1Choice.Length != 1) // Check for only one number
-    {
-        Console.WriteLine("Sorry, you can only choose one space at a time");
-        result = false;
-    }
-    else if (!int.TryParse(player1Choice.ToString(), out _)) // Check to make sure it is a number
+    if (!int.TryParse(player1Choice.ToString(), out _)) // Check to make sure it is a number
     {
         Console.WriteLine("Sorry, you have to type a number");
         result = false;
@@ -90,16 +85,11 @@ public bool validMoveP1(int player1Choice, string[] gameBoard)
     return result;
 }
 
-public bool validMoveP2(int player2Choice, string[] gameBoard)
+bool validMoveP2(int player2Choice, string[] gameBoard)
 {
     bool result = true; // Default to a valid guess
 
-    if (player1Choice.Length != 1) // Check for only one number
-    {
-        Console.WriteLine("Sorry, you can only choose one space at a time");
-        result = false;
-    }
-    else if (!int.TryParse(player2Choice.ToString(), out _)) // Check to make sure it is a number
+    if (!int.TryParse(player2Choice.ToString(), out _)) // Check to make sure it is a number
     {
         Console.WriteLine("Sorry, you have to type a number");
         result = false;
