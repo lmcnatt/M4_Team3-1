@@ -11,7 +11,7 @@ namespace Helper
     {
         public void printBoard(string[] guesses) //this prints
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < guesses.Length; i++)
             {
                 if (guesses[i] == null)
                 {
@@ -24,13 +24,20 @@ namespace Helper
             finalOutput = finalOutput + "---+---+---" + "\n";
             finalOutput = finalOutput + " " + guesses[6] + " | " + guesses[7] + " | " + guesses[8] + " ";
             Console.WriteLine(finalOutput);
+            for (int i = 0; i < guesses.Length; i++)
+            {
+                if (guesses[i] == " ")
+                {
+                    guesses[i] = null;
+                }
+            }
         }
 
         public int getWinner(string[] board)
         {
             int winner = 0;
             bool checkTie = true;
-            for (int i = 0; i < 9; i += 3) // checking rows
+            for (int i = 0; i < board.Length; i += 3) // checking rows
             {
                 if (board[i] == board[i + 1] && board[i] == board[i + 2])
                 {
@@ -85,7 +92,7 @@ namespace Helper
                     winner = 2;
                 }  
             }
-            for (int i = 0; i < 8; i ++)
+            for (int i = 0; i < board.Length; i ++)
             {
                 if (board[0] == null)
                 {
