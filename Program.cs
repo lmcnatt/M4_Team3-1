@@ -104,7 +104,7 @@ public bool validMoveP2(int player2Choice, string[] gameBoard)
         Console.WriteLine("Sorry, you have to type a number");
         result = false;
     }
-    else if (player2Choice < 0 || player1Choice >= gameBoard.Length)
+    else if (player2Choice < 0 || player2Choice >= gameBoard.Length)
     {
         Console.WriteLine("Invalid choice. Please choose a number between 1 and 9");
         result = false;
