@@ -88,18 +88,6 @@ bool validMoveP1(int player1Choice, string[] gameBoard)
 bool validMoveP2(int player2Choice, string[] gameBoard)
 {
     bool result = true; // Default to a valid guess
-    for (int i = 0; i < gameBoard.Length; i++)
-    {
-        if (gameBoard[i] == null)
-        {
-            Console.WriteLine(i + " is null");
-        }
-        else
-        {
-            Console.WriteLine(gameBoard[i]);
-        }
-        
-    }
 
     if (!int.TryParse(player2Choice.ToString(), out _)) // Check to make sure it is a number
     {
