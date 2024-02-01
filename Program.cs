@@ -28,7 +28,7 @@ do
         }
         else
         {
-            Console.WriteLine("Invalid input. Please enter a valid integer.");
+            player1Choice = 100;
         }
 
     } while (!ht.validMoveP1(player1Choice, gameBoard));
@@ -49,7 +49,7 @@ do
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid integer.");
+                player2Choice = 100;
             }
 
         } while (!ht.validMoveP2(player2Choice, gameBoard));
