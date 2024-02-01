@@ -22,22 +22,41 @@ do
     do
     {
         Console.WriteLine("Player 1, Please make your move");
-        player1Choice = int.Parse(Console.ReadLine()) - 1;
+        if (int.TryParse(Console.ReadLine(), out player1Choice))
+        {
+            player1Choice = player1Choice - 1;
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+        }
 
-    } while (!validMoveP1(player1Choice, gameBoard));
+    } while (!ht.validMoveP1(player1Choice, gameBoard));
 
     gameBoard[player1Choice] = "X";
     ht.printBoard(gameBoard);
+    winner = ht.getWinner(gameBoard);
 
-    do
+
+    if (winner == 0)
     {
-        Console.WriteLine("Player 2, Please make your move");
-        player2Choice = int.Parse(Console.ReadLine()) - 1;
+            do
+        {
+            Console.WriteLine("Player 2, Please make your move");
+            if (int.TryParse(Console.ReadLine(), out player2Choice))
+            {
+                player2Choice = player2Choice - 1;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid integer.");
+            }
 
-    } while (!validMoveP2(player2Choice, gameBoard));
+        } while (!ht.validMoveP2(player2Choice, gameBoard));
 
-    gameBoard[player2Choice] = "O";
-    ht.printBoard(gameBoard);
+        gameBoard[player2Choice] = "O";
+        ht.printBoard(gameBoard);
+    }
 
     winner = ht.getWinner(gameBoard);
 
@@ -62,48 +81,3 @@ do
     }
 } while (!gameOver);
 
-bool validMoveP1(int player1Choice, string[] gameBoard)
-{
-    bool result = true; // Default to a valid guess
-
-    if (!int.TryParse(player1Choice.ToString(), out _)) // Check to make sure it is a number
-    {
-        Console.WriteLine("Sorry, you have to type a number");
-        result = false;
-    }
-    else if (player1Choice < 0 || player1Choice >= gameBoard.Length)
-    {
-        Console.WriteLine("Invalid choice. Please choose a number between 1 and 9");
-        result = false;
-    }
-    else if (gameBoard[player1Choice] != null) // Check to see if the space is taken
-    {
-        Console.WriteLine("Sorry, someone has already gone there.");
-        result = false;
-    }
-
-    return result;
-}
-
-bool validMoveP2(int player2Choice, string[] gameBoard)
-{
-    bool result = true; // Default to a valid guess
-
-    if (!int.TryParse(player2Choice.ToString(), out _)) // Check to make sure it is a number
-    {
-        Console.WriteLine("Sorry, you have to type a number");
-        result = false;
-    }
-    else if (player2Choice < 0 || player2Choice >= gameBoard.Length)
-    {
-        Console.WriteLine("Invalid choice. Please choose a number between 1 and 9");
-        result = false;
-    }
-    else if (gameBoard[player2Choice] != null) // Check to see if the space is taken
-    {
-        Console.WriteLine("Sorry, someone has already gone there.");
-        result = false;
-    }
-
-    return result;
-}
